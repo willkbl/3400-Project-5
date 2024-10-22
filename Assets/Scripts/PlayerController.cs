@@ -70,5 +70,10 @@ public class PlayerController : MonoBehaviour
         {
             footstepsSource.volume = 0;
         }
+
+        if (!LevelManager.isGameOver && transform.position.y < -3) //if player has fallen off edge
+        {
+            FindObjectOfType<LevelManager>().LevelLost(); //lose the game (restart the level)
+        }
     }
 }
